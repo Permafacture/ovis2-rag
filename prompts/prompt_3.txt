@@ -1,0 +1,36 @@
+Convert this consecutive series of documents image to clean markdown for text database processing.
+
+FORMATTING RULES:
+1. HEADINGS - Use markdown heading levels based on VISUAL prominence:
+   Example: # Main Title (largest text)
+   Example: ## Section Heading (second largest)
+   Example: ### Subsection (third largest)
+
+2. MAIN CONTENT - Include all relevant text:
+   - Regular paragraphs as plain text
+   - Indented quotes as > blockquotes
+   - Lists with proper markdown bullets or numbers
+   - Table of contents entries included as a markdown format table
+
+3. TABLES - Convert to markdown format:
+   | Column 1 | Column 2 |
+   |----------|----------|
+   | Data 1   | Data 2   |
+
+4. SPECIAL ELEMENTS - Convert using JSON format:
+   - Footnotes: {"type": "footnote", "identifier": "1", "content": "reference text"}
+   - Figures: {"type": "figure", "identifier": "Fig 2", "content": "description of what the image shows"}
+   - Formulas: {"type": "formula", "identifier": "Eq 3.1", "content": "description of mathematical equation"}
+
+5. EXCLUDE - Do not include:
+   - Repeating headers/footers
+   - Page numbers
+   - Navigation elements or advertisements
+   - Watermarks
+
+6. DELIMIT PAGES
+   - Indicate the transition from one image to the next with <<<PAGE BREAK>>> 
+
+IMPORTANT NOTE: Images may be partial screenshots containing page elements in unusual positions. Focus on extracting proper content hierarchy regardless of positioning.
+
+Blank pages should be represented as "\n\n"

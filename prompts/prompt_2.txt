@@ -1,0 +1,29 @@
+Convert this consecutive series of documents image to clean markdown for text database chunking:
+
+STEP 1: ANALYZE VISUAL HIERARCHY
+- Identify largest text elements and mark as # headings
+- Mark next largest as ## subheadings, and so on
+- Do not assign # to regular paragraphs if no clear headings exist
+
+STEP 2: EXTRACT CORE CONTENT
+- Include all main text (even if small at section beginnings)
+- Format indented text with > markdown blockquotes
+- Convert tables to markdown format
+- Handle lists with proper markdown (numbered or bulleted)
+
+STEP 3: HANDLE SPECIAL ELEMENTS
+- Convert footnotes to: {"type": "footnote", "identifier": "symbol", "content": "text"}
+- Describe images as: {"type": "figure", "identifier": null, "content": "description"}
+- Describe formulas as: {"type": "formula", "identifier": null, "content": "description"}
+
+STEP 4: REMOVE NON-ESSENTIAL ELEMENTS
+- Skip repeating headers/footers
+- Ignore page numbers
+- Exclude navigation and advertisements
+- Blank pages should be "\n\n"
+
+STEP 5: SEPERATE IMAGES AS PAGES
+- Each image is one page
+- indicate the transition from one image to another with <<<PAGE BREAK>>>
+
+IMPORTANT: Images may be partial pages with elements like footnotes appearing mid-content.

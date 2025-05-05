@@ -1,0 +1,31 @@
+Convert the series of consecutive images to markdown for text database ingestion following these rules:
+
+1. HEADINGS: Use # ## ### based on VISUAL SIZE of text (largest = #), not document order
+
+2. CONTENT: Include all main text including:
+   - Small introductory text
+   - Table of contents
+   - Format indented text as > blockquotes
+
+3. TABLES: Convert to markdown tables
+
+4. SPECIAL ELEMENTS: Format as JSON:
+   {"type": "footnote", "identifier": "1", "content": "footnote text"}
+   {"type": "figure", "identifier": null, "content": "description of image"}
+   {"type": "formula", "identifier": null, "content": "description of formula"}
+
+5. EXCLUDE:
+   - Headers/footers that repeat across pages
+   - Page numbers
+   - Navigation elements
+   - Watermarks/advertisements
+
+6. BLANK PAGES: Represent as "\n\n"
+
+7. NOTE: Images may be partial pages with page numbers or footnotes in middle of content
+
+8. FORMAT CODE: Use markdown code blocks ```language code ```
+
+9. Indicate the tarnsition form one image to another with `<<<PAGE BREAK>>>`
+
+Remember document hierarchy is critical for database chunking.
